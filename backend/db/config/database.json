@@ -1,8 +1,8 @@
 {
   "development": {
-    "username": "sandra1ex",
-    "password": 6932080,
-    "database": "todo",
+    "username": "annakrem",
+    "password": "annakrem",
+    "database": "topic",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
