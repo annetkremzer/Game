@@ -1,10 +1,11 @@
 import { combineReducers, createStore } from "redux";
 import { topicReducer } from "./topicReducer/topicReducer";
+import { userReducer } from "./userReducer/userReducer";
 
 const store = createStore(
     combineReducers({
         topicState: topicReducer,
-        // userState: userReducer
+         userState: userReducer
     })
 )
 export default store
