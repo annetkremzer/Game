@@ -1,26 +1,26 @@
 const router = require('express').Router();
 const bcrypt = require('bcrypt');
-const { User, Profile } = require('../db/models');
+const { User } = require('../db/models');
 
 router.post('/registration', async (req, res) => {
-  const { password, email } = req.body;
-  if (password && email) {
-    const user = await User.findOne({ where: { email } });
+  const { password, login } = req.body;
+  if (password && login) {
+    const user = await User.findOne({ where: { login } });
     if (user) {
-      res.json({ message: 'такой чел уже есть' });
+      res.json({ message: 'такой login есть' });
     } else {
       const hash = await bcrypt.hash(password, 10);
-      const newUser = await User.create({ password: hash, email });
+      const newUser = await User.create({ password: hash, login });
       req.session.userId = newUser.id;
-      res.status(200).json({ message: 'все ок', user: newUser.email });
+      res.status(200).json({ message: 'все ок', user: newUser.login });
     }
   }
 });
 
 router.post('/login', async (req, res) => {
-  const { password, email } = req.body;
-  if (password && email) {
-    const user = await User.findOne({ where: { email } });
+  const { password, login } = req.body;
+  if (password && login) {
+    const user = await User.findOne({ where: { login } });
     if (user) {
       const isSame = await bcrypt.compare(password, user.password);
       if (isSame) {
@@ -35,22 +35,6 @@ router.post('/login', async (req, res) => {
 
 router.get('/logout', (req, res) => {
   req.session.destroy(() => res.clearCookie('user_sid').json({ message: 'Session destroy' }));
-});
-
-router.post('/profile', async (req, res) => {
-  const { avatar, name, telephone } = req.body;
-  const id = req.session.userId;
-  if (avatar && avatar && avatar) {
-    const user = await Profile.findOne({ where: { id } });
-    if (user) {
-      res.json({ message: 'профиль у такого пользователя уже есть' });
-    } else {
-      const newProfile = await Profile.create({
-        avatar, name, telephone, user_id: id,
-      });
-      res.status(200).json({ message: 'все ок', newProfile });
-    }
-  }
 });
 
 module.exports = router;
