@@ -1,13 +1,19 @@
 const router = require('express').Router();
-const { Quest } = require('../db/models');
+const { Topic, Quest } = require('../db/models');
 
 router.get('/', async (req, res) => {
   try {
     const quests = await Quest.findAll({
-      include: Quest.Topic,
       raw: true,
     });
-    res.json(quests);
+    const topics = await Topic.findAll({
+      raw: true,
+    });
+    const data = topics.map((topic) => ({
+      topic: topic.title,
+      quests: quests.filter((quest) => quest.topicId === topic.id),
+    }));
+    res.json(data);
   } catch (e) {
     console.log(e.message);
   }
