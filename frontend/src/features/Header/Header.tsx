@@ -10,7 +10,11 @@ function Header() {
   )
   const navigate = useNavigate();
   useEffect(() => navigate('/main'), [])
+ const {score} = useSelector((state:RootState) => 
+ state.topicState
+ )
 
+ 
 
   return (
     <div className="app__container">
@@ -36,11 +40,19 @@ function Header() {
                 </li>
               </>
             ) : (
+              <>
+              <li className="header__item">
+                Привет,{user}
+              </li>
+              <li className="header__item">
+                Твое очко:{score}
+              </li>
               <li>
                 <NavLink className="header__item" to="/auth/logout">
                   Logout
                 </NavLink>
               </li>
+              </>
             )}
           </ul>
         </div>

@@ -1,7 +1,8 @@
 import Topic from "../../../TopicItem/types/Topic";
 
 interface State {
-    topics: Topic[]
+    topics: Topic[],
+    score: number
 }
 
 export default State;

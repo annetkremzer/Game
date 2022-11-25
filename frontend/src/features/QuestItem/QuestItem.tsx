@@ -2,6 +2,8 @@ import { Box, Button, Modal, TextField, Typography } from '@mui/material'
 import React, { useState } from 'react'
 import Quest from './types/Quest'
 import './QuestItem.css'
+import { useDispatch } from 'react-redux';
+
 
 function QuestItem({ questBlock }: { questBlock: Quest }): JSX.Element {
   const [open, setOpen] = useState(false);
@@ -15,13 +17,16 @@ function QuestItem({ questBlock }: { questBlock: Quest }): JSX.Element {
     setOpen(false);
     setScore('');
   };
+  const dispatch = useDispatch()
 
   const handleAnswer = () => {
     if(answer.toLowerCase() === questBlock.answer.toLowerCase()) {
       setCheckAnswer('Правильный ответ! Умничка! Еще чуть-чуть и ты Хокаге!')
-    } else {
+    dispatch({type:'SCORE_PLUS', payload: questBlock.score})
+    }  else {
       setCheckAnswer(`Не правильно! Правильный ответ: ${questBlock.answer}`)
     }
+
   }
 
   const style = {
