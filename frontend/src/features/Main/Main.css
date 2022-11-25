@@ -1,0 +1,23 @@
+.container {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.img_cont {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+img {
+    border: 6px solid rgb(38, 246, 253);
+    border-radius: 10px;
+    box-shadow: 0px 10px 40px hsla(183, 87%, 53%, 0.918);
+}
+
+p {
+    margin-top: 40px;
+    text-align: right;
+    font-family: FreeMono, monospace;
+}
