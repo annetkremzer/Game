@@ -10,7 +10,7 @@ console.log(topicState);
 
 
   return (
-    <div style={{display: 'flex', flexDirection:'column'}}>
+    <div style={{display: 'flex', flexDirection:'column', fontSize: '100px', textAlign:'center', minWidth: '300px'}}>
       {topicState.topics.map((topic, i) => <TopicItem key={i} topic={topic}/>)}
     </div>
   )
