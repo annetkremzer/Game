@@ -3,33 +3,51 @@ module.exports = {
   async up(queryInterface) {
     const questData = [
       {
-        topicId: 1, question: 'question1', answer: 'answer1', score: 100,
+        topicId: 1, question: 'Кто убьет за логинизацию?', answer: 'Лена', score: 100,
       },
       {
-        topicId: 1, question: 'question2', answer: 'answer2', score: 200,
+        topicId: 1, question: 'Кто тут мама?', answer: 'Толя', score: 200,
       },
       {
-        topicId: 1, question: 'question3', answer: 'answer3', score: 300,
-      },
-
-      {
-        topicId: 2, question: 'question4', answer: 'answer4', score: 100,
+        topicId: 1, question: 'Кто тут папа?', answer: 'Толя', score: 300,
       },
       {
-        topicId: 2, question: 'question5', answer: 'answer5', score: 200,
+        topicId: 1, question: 'Король вечеринок...', answer: 'Артем', score: 400,
       },
       {
-        topicId: 2, question: 'question6', answer: 'answer6', score: 300,
+        topicId: 1, question: 'Основал секту...', answer: 'Юра', score: 500,
       },
 
       {
-        topicId: 3, question: 'question7', answer: 'answer7', score: 100,
+        topicId: 2, question: 'Если ты не один, то ты...', answer: 'два', score: 100,
       },
       {
-        topicId: 3, question: 'question8', answer: 'answer8', score: 200,
+        topicId: 2, question: 'Кто в цирке не выступает', answer: 'Лис', score: 200,
       },
       {
-        topicId: 3, question: 'question9', answer: 'answer9', score: 300,
+        topicId: 2, question: 'Хто ты?', answer: 'Эльбрусовец', score: 300,
+      },
+      {
+        topicId: 2, question: 'Среди вас мафия, кто это?', answer: 'Артем', score: 400,
+      },
+      {
+        topicId: 2, question: 'Кто проживает на дне леса?', answer: 'Лисы', score: 500,
+      },
+
+      {
+        topicId: 3, question: 'It -это...', answer: 'Оно', score: 100,
+      },
+      {
+        topicId: 3, question: 'IT - это...', answer: 'информатик техноложи', score: 200,
+      },
+      {
+        topicId: 3, question: 'Так, что такое IT?', answer: 'IT', score: 300,
+      },
+      {
+        topicId: 3, question: 'У России два пути: webCAM и ...', answer: 'АЙТИ', score: 400,
+      },
+      {
+        topicId: 3, question: 'Подведем итоги, так что такое IT?', answer: 'компутер саенс', score: 500,
       },
 
     ];
