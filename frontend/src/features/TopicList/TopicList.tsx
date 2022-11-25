@@ -6,8 +6,6 @@ import TopicItem from '../TopicItem/TopicItem';
 function TopicList() {
 
   const { topicState } = useSelector((state: RootState) => state);
-console.log(topicState);
-
 
   return (
     <div style={{display: 'flex', flexDirection:'column', fontSize: '70px', textAlign:'center', minWidth: '300px'}}>

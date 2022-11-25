@@ -19,7 +19,12 @@ export const topicReducer = (
             }
         case 'SCORE_PLUS':
             console.log(action.payload);
-            const switchScore = state.score + action.payload
+            let switchScore;
+            if(action.payload !== 0) {
+                switchScore = state.score + action.payload;
+            } else {
+                switchScore = 0;
+            }
             return {
                 ...state,
                 score: switchScore
