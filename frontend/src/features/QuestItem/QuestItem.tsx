@@ -1,6 +1,7 @@
 import { Box, Button, Modal, TextField, Typography } from '@mui/material'
 import React, { useState } from 'react'
 import Quest from './types/Quest'
+import './QuestItem.css'
 
 function QuestItem({ questBlock }: { questBlock: Quest }): JSX.Element {
   const [open, setOpen] = useState(false);
@@ -42,8 +43,8 @@ function QuestItem({ questBlock }: { questBlock: Quest }): JSX.Element {
   };
 
   return (
-    <div>
-      {score ? <Button onClick={handleOpen}>{score}</Button> : <Button disabled></Button>}
+    <div className='ul9'>
+      {score ? <Button onClick={handleOpen} sx={{fontSize: '100px', textAlign:'center', minWidth: '300px', backgroundColor: 'rgb(59, 252, 0)', margin: '5px', borderRadius: '15px'}}>{score}</Button> : <Button className='ul9' sx={{fontSize: '100px', textAlign:'center', minWidth: '300px'}} disabled></Button>}
       
       <Modal
         open={open}
@@ -52,12 +53,12 @@ function QuestItem({ questBlock }: { questBlock: Quest }): JSX.Element {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <Typography id="modal-modal-title" variant="h3" component="h2" >
+          <Typography id="modal-modal-title" variant="h2" component="h2">
             {questBlock.question}
           </Typography>
           <TextField id="standard-basic" label="Answer" variant="standard" onChange={(e) => setAnswer(e.target.value)} value={answer}/>
-          <Button onClick={handleAnswer}>Answer</Button>
-          <p>{checkAnswer}</p>
+          <Button onClick={handleAnswer} sx={{fontSize: '30px'}}>Answer</Button>
+          <p style={{fontSize: '30px'}}>{checkAnswer}</p>
         </Box>
       </Modal>
 
