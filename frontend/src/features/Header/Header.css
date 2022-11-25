@@ -1,0 +1,32 @@
+.header__nav {
+    width: 100%;
+   border-bottom: 5px dashed rgb(204, 207, 221);
+  }
+
+.header__container {
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    position: relative;
+  }
+
+.header__menu {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: #fff;
+    width: 100%;
+    list-style: none;
+    font-size: large;
+}
+.header__item {
+    text-decoration:none;
+    font-family: FreeMono, monospace;
+    color: rgb(13, 2, 98);
+    font-size: larger;
+    font-weight:bold;
+}
+
+.header__item:hover {
+    color:#fff
+}
