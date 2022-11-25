@@ -14,6 +14,12 @@ function App() {
   useEffect(() => {
     api.loadTopics().then((res) => dispatch({ type: 'INIT_TOPIC', payload: res }))
   }, [])
+  useEffect(()=>{
+    api.checkUser().then((res) => { console.log(res);
+    
+      dispatch({ type: 'AUTH', payload: res })
+    })
+  },[])
 
   return (
     <Routes>

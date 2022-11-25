@@ -1,5 +1,8 @@
 import User, { Res } from "../features/reducers/userReducer/types/User";
 import Topic from "../features/TopicItem/types/Topic";
+;
+
+
 
 export const loadTopics = async (): Promise<Topic[]> => {
   const res = await fetch('http://localhost:4000/api');
@@ -27,6 +30,10 @@ export const login = async (item: User): Promise<Res> => {
 }
 
 export const logout = async (): Promise<Res> => {
-  const res = await fetch('http://localhost:4000/auth/logout');
+  const res = await fetch('http://localhost:4000/auth/logout',{credentials: 'include'});
   return res.json();
 };
+ export const checkUser = async():Promise<Res> =>{
+  const res = await fetch('http://localhost:4000/auth/check',{credentials: 'include'})
+  return res.json();
+ }
