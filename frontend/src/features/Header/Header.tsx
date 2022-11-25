@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './Header.css';
 import { useSelector } from 'react-redux'
 import { NavLink, Outlet, useNavigate } from 'react-router-dom'
