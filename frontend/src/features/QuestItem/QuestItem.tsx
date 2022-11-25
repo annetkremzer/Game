@@ -10,6 +10,7 @@ function QuestItem({ questBlock }: { questBlock: Quest }): JSX.Element {
   const [score, setScore] = useState(String(questBlock.score));
   const [answer, setAnswer] = useState('');
   const [checkAnswer, setCheckAnswer] = useState('');
+  const [img, setImg] = useState('');
 
   const handleOpen = () => setOpen(true);
 
@@ -21,10 +22,20 @@ function QuestItem({ questBlock }: { questBlock: Quest }): JSX.Element {
 
   const handleAnswer = () => {
     if(answer.toLowerCase() === questBlock.answer.toLowerCase()) {
-      setCheckAnswer('Правильный ответ! Умничка! Еще чуть-чуть и ты Хокаге!')
-    dispatch({type:'SCORE_PLUS', payload: questBlock.score})
+      setCheckAnswer('Правильный ответ! Умничка! Еще чуть-чуть и ты Хокаге!');
+      fetch('https://api.giphy.com/v1/gifs/random?api_key=M1kIUJbwwhJv1QoPn4A4G2WR9JFHmHCq&tag=win')
+            .then((response) => response.json())
+            .then((json) => {
+              setImg(json.data.images.downsized.url)
+            })
+      dispatch({type:'SCORE_PLUS', payload: questBlock.score})
     }  else {
       setCheckAnswer(`Не правильно! Правильный ответ: ${questBlock.answer}`)
+      fetch('https://api.giphy.com/v1/gifs/random?api_key=M1kIUJbwwhJv1QoPn4A4G2WR9JFHmHCq&tag=lose')
+            .then((response) => response.json())
+            .then((json) => {
+              setImg(json.data.images.downsized.url)
+            })
     }
 
   }
@@ -35,7 +46,7 @@ function QuestItem({ questBlock }: { questBlock: Quest }): JSX.Element {
     left: '50%',
     transform: 'translate(-50%, -50%)',
     width: 1000,
-    height: 500,
+    height: 700,
     bgcolor: 'background.paper',
     border: '2px solid #000',
     boxShadow: 24,
@@ -64,6 +75,8 @@ function QuestItem({ questBlock }: { questBlock: Quest }): JSX.Element {
           <TextField id="standard-basic" label="Answer" variant="standard" onChange={(e) => setAnswer(e.target.value)} value={answer}/>
           <Button onClick={handleAnswer} sx={{fontSize: '30px'}}>Answer</Button>
           <p style={{fontSize: '30px'}}>{checkAnswer}</p>
+          {img && <img style={{marginTop: '10px', width: '350px'}} src={img} alt='...'/>}
+          
         </Box>
       </Modal>
 
