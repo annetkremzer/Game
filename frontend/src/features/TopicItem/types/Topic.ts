@@ -1,9 +1,9 @@
-import Quest from "../../Quest/types/Quest";
+import Quest from "../../QuestItem/types/Quest";
 
 interface Topic {
     id: number;
     title:string;
-    quest: Quest[]
+    quests: Quest[]
 }
 
 export default Topic

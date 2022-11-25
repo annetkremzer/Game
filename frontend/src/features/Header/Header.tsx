@@ -1,13 +1,16 @@
 import React from 'react'
 import './Header.css';
 import { useSelector } from 'react-redux'
-import { NavLink, Outlet } from 'react-router-dom'
+import { NavLink, Outlet, useNavigate } from 'react-router-dom'
 import { RootState } from '../reducers/store'
 
 function Header() {
-const {user} = useSelector((state:RootState) => 
-  state.userState
-)
+  const { user } = useSelector((state: RootState) =>
+    state.userState
+  )
+  const navigate = useNavigate();
+  useEffect(() => navigate('/main'), [])
+
 
   return (
     <div className="app__container">

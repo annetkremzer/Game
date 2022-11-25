@@ -10,7 +10,7 @@ router.get('/', async (req, res) => {
       raw: true,
     });
     const data = topics.map((topic) => ({
-      topic: topic.title,
+      title: topic.title,
       quests: quests.filter((quest) => quest.topicId === topic.id),
     }));
     res.json(data);
