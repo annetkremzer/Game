@@ -37,4 +37,12 @@ router.get('/logout', (req, res) => {
   req.session.destroy(() => res.clearCookie('user_sid').json({ message: 'Session destroy' }));
 });
 
+router.get('/check', async (req, res) => {
+  if (req.session.userId) {
+    const user = await User.findByPk(req.session.userId, { raw: true });
+    return res.json({ message: 'успех', user });
+  }
+  res.json('');
+});
+
 module.exports = router;
