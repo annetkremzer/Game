@@ -1,0 +1,54 @@
+h2 {
+    font-family: FreeMono, monospace;
+    font-size: 35px;
+    text-align: center;
+    color: rgb(13, 2, 98);
+    margin-top: 20px;
+}
+.form_container {
+    width: 450px;
+    min-height: 200px;
+    height: auto;
+    border-radius: 15px;
+    margin: 2% auto;
+    box-shadow: 0 10px 50px hsla(236, 79%, 40%, 0.31);
+    padding: 2%;
+    display: flex;
+    justify-content: center;
+}
+
+.form-control {
+    color: rgb(5, 0, 0);
+    padding: 9px 0px 8px 6px;
+    border-radius: 5px;
+    display: flex;
+    border-color: aqua;
+}
+.form-label {
+    display: block;
+  color: white;
+  /* text-transform: uppercase; */
+  text-align: center;
+  font-family: FreeMono, monospace;
+  font-size: 20px;
+  font-weight:bold;
+}
+.btn {
+    /* width: 48%; */
+    margin-top: 10px;
+    background-color: rgb(111, 109, 233);
+    color: rgb(242, 11, 176);
+    width: 120px;
+    height: 35px;
+    border-radius: 15px;
+    border-color: aqua;
+    font-family: FreeMono, monospace;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.btn:hover {
+    width: 190px;
+    height: 50px;
+}
+
