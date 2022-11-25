@@ -24,7 +24,17 @@ function Auth() :JSX.Element {
             navigate('/auth/login');
           } else {
             dispatch({ type: 'AUTH', payload: res });
-            navigate('/');
+            navigate('/main');
+          }
+         });
+      } else if (name === 'login') {
+        api[name]({ login, password }).then((res:Res) => {
+          if (res.message === 'Ваш login или password указаны не верно') {
+            console.log('povtori');
+            
+          } else {
+            dispatch({ type: 'AUTH', payload: res });
+            navigate('/main');
           }
          });
       }
