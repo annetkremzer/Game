@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import './Auth.css';
 import * as api from '../../App/api';
 import { Res } from '../reducers/userReducer/types/User';
 
@@ -42,11 +43,11 @@ function Auth() :JSX.Element {
   return (
     <>
     <h2>{name?.toUpperCase()}</h2>
-      <div>
+      <div className='form_container'>
     <form onSubmit={auth}>
       <div className="mb-3">
-        <label>
-          login
+        <label className="form-label">
+          Login
           <input
             onChange={(e) => setLogin(e.target.value)}
             value={login}

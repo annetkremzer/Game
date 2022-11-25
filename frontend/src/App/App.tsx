@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import * as api from './api'
+import './App.css'
 import { RootState } from '../features/reducers/store';
 import { Route, Routes } from 'react-router-dom';
 import Auth from '../features/auth/Auth';
