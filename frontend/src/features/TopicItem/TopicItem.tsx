@@ -1,5 +1,5 @@
 import React from 'react'
-import QuestItem from '../Quest/Quest'
+import QuestItem from '../QuestItem/QuestItem'
 import Topic from './types/Topic'
 
 function TopicItem({topic} : {topic: Topic}):JSX.Element {
