@@ -2,9 +2,9 @@
 module.exports = {
   async up(queryInterface) {
     const topicData = [
-      { title: 'topic1' },
-      { title: 'topic2' },
-      { title: 'topic3' },
+      { title: 'Эльбрус' },
+      { title: 'Хто йа?' },
+      { title: 'IT' },
     ];
     const topics = topicData.map((topic) => ({
       ...topic,
