@@ -14,12 +14,14 @@ function Header() {
 
   const navigate = useNavigate();
   useEffect(() => navigate('/main'), [])
+ const {score} = useSelector((state:RootState) => 
+ state.topicState
+ )
 
   const handleLogout = () => {
     logout().then((res: Res) => res.message === 'Session destroy' && dispatch({ type: 'LOGOUT' }))
     navigate('/main')
   }
-
 
   return (
     <div className="app__container">
@@ -45,11 +47,19 @@ function Header() {
                 </li>
               </>
             ) : (
+              <>
+              <li className="header__item">
+                Привет,{user}
+              </li>
+              <li className="header__item">
+                Твое очко:{score}
+              </li>
               <li>
                 <button style={{background:'none', border:'none', padding:'none'}} onClick={handleLogout} className="header__item">
                   Logout
                 </button>
               </li>
+              </>
             )}
           </ul>
         </div>
